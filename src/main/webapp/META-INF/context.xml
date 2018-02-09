@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?> 
-<Context displayName="Java007_Work" docBase="Java007_Work" path="/Java007_Work" reloadable="true">
-  <!--               SQLServer(範例程式會用到的DataSource)       -->
-  <Resource name="jdbc/sDiaryDataBase" type="javax.sql.DataSource"
+<Context displayName="jspExercise" docBase="jspExercise" path="/jspExercise" reloadable="true">
+  <!--                     MySQL                   -->
+  <Resource name="jdbc/FarmerCoopDB" type="javax.sql.DataSource"
       username="root" password="dior1202"
       driverClassName="com.mysql.jdbc.Driver"
-      url="jdbc:mysql://localhost:3306/farmercoop?useSSL=true"
-      connectionProperties="useUnicode=yes;characterEncoding=utf8"
+      url="jdbc:mysql://localhost:3306/fcdb"
+      connectionProperties="useUnicode=yes;characterEncoding=utf8;"
       maxActive="8"
       maxIdle="4"
       maxWait="5000"
-  />
+  />  
 </Context>

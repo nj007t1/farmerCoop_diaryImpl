@@ -14,6 +14,10 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -25,9 +29,10 @@ import javax.sql.rowset.serial.SerialClob;
 import javax.xml.bind.DatatypeConverter;
 
 public class SystemUtils {
+	
 	public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	public static final String HOST = "127.0.0.1";
-	public static final String DB = "farmercoop";
+	public static final String DB = "fcdb";
 	public static final String USER = "root";
 	public static final String PASSWORD = "dior1202";
 	public static final String URL = "jdbc:mysql://" + HOST + ":3306/" + SystemUtils.DB + "?user=" + SystemUtils.USER
@@ -149,5 +154,28 @@ public class SystemUtils {
 	public void saveClobToFile(Clob clob, FileWriter fw) throws IOException {
 		char[] ca = clobToCharArray(clob);
 		fw.write(ca);
+	}
+	
+	public static Timestamp convertToTimestamp(String stringToFormat) {
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+	    try {
+	        Date date = dateFormat.parse(stringToFormat);
+	        Timestamp tstamp = new Timestamp(date.getTime());
+	        return tstamp;
+	    } 
+	    catch (ParseException e) {
+	        return null;
+	    }
+	}
+	public static Date convertToDate(String stringToDate){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    try {
+	        Date date = dateFormat.parse(stringToDate);
+
+	        return date;
+	    } 
+	    catch (ParseException e) {
+	        return null;
+	    }
 	}
 }

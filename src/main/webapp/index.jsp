@@ -8,6 +8,7 @@
 	<title>Home</title>
 </head>
 <body>
-	<h1>Hello World!</h1>
+
+<a href="diaryPage.jsp">日誌列表</a>
 </body>
 </html>
